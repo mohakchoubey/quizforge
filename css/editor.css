@@ -1,0 +1,163 @@
+/* =========================================================
+   QuizForge — PDF Editor
+   ========================================================= */
+
+.editor-shell {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 64px);
+}
+
+.editor-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-alt);
+  flex-wrap: wrap;
+}
+
+.editor-toolbar .spacer {
+  flex: 1;
+}
+
+.editor-toolbar .btn {
+  padding: 0.55rem 0.9rem;
+  font-size: 0.82rem;
+}
+
+.editor-toolbar .btn-danger {
+  background: rgba(248, 113, 113, 0.12);
+  border: 1px solid rgba(248, 113, 113, 0.4);
+  color: #fca5a5;
+}
+
+.editor-toolbar .btn-danger:hover {
+  background: rgba(248, 113, 113, 0.2);
+}
+
+.editor-meta {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-faint);
+  padding-left: 0.5rem;
+}
+
+.editor-layout {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.thumbnail-rail {
+  width: 190px;
+  flex-shrink: 0;
+  overflow-y: auto;
+  border-right: 1px solid var(--border);
+  background: var(--bg-alt);
+  padding: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.thumb {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.2s var(--ease);
+  background: #050408;
+}
+
+.thumb canvas {
+  width: 100%;
+  display: block;
+}
+
+.thumb:hover {
+  border-color: var(--border-strong);
+}
+
+.thumb.is-active {
+  border-color: var(--violet-bright);
+  box-shadow: 0 0 0 1px var(--violet-bright);
+}
+
+.thumb.is-removed {
+  opacity: 0.3;
+}
+
+.thumb-label {
+  position: absolute;
+  bottom: 4px;
+  right: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-dim);
+  background: rgba(0, 0, 0, 0.55);
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+
+.canvas-stage {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  padding: 2rem;
+  background:
+    radial-gradient(500px circle at 50% 0%, rgba(139, 92, 246, 0.08), transparent 60%),
+    var(--bg);
+}
+
+.canvas-frame {
+  box-shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.6), 0 0 0 1px var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+  max-width: 100%;
+}
+
+#pdf-render-canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.canvas-controls {
+  margin-top: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+.canvas-controls button {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.9rem;
+}
+
+.canvas-controls button:hover {
+  border-color: var(--border-strong);
+}
+
+.editor-empty {
+  text-align: center;
+  color: var(--text-dim);
+  padding: 3rem;
+}
+
+@media (max-width: 760px) {
+  .thumbnail-rail {
+    width: 120px;
+  }
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a12" />
+  <title>Quiz — QuizForge</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/quiz.css" />
+</head>
+<body data-page="dashboard">
+  <header id="site-header" class="site-header"></header>
+
+  <main class="quiz-shell container-narrow">
+    <div class="hidden" id="quiz-empty" style="text-align:center;">
+      <h1>No quiz is ready</h1>
+      <p class="mx-auto mt-lg">Generate one from a PDF to get started.</p>
+      <a href="upload.html" class="btn btn-primary mt-lg">Upload a PDF</a>
+    </div>
+
+    <div id="question-card">
+      <div class="quiz-progress-track"><div class="quiz-progress-fill" id="quiz-progress-fill"></div></div>
+      <div class="quiz-progress-label"><span id="quiz-progress-label">Question 1</span></div>
+
+      <div class="card question-card">
+        <span class="badge">Answer to continue</span>
+        <h2 class="question-text" id="question-text">Loading…</h2>
+        <div class="answer-list" id="answer-list"></div>
+      </div>
+
+      <div class="quiz-actions">
+        <button type="button" class="btn btn-primary" id="next-btn">Next question</button>
+        <button type="button" class="btn btn-primary hidden" id="finish-btn">Finish quiz</button>
+      </div>
+    </div>
+  </main>
+
+  <footer id="site-footer" class="footer"></footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/navbar.js"></script>
+  <script type="module" src="js/quiz.js"></script>
+</body>
+</html>

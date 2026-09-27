@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a12" />
+  <title>Results — QuizForge</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/quiz.css" />
+</head>
+<body data-page="dashboard">
+  <header id="site-header" class="site-header"></header>
+
+  <main class="quiz-shell container-narrow">
+    <div class="hidden" id="results-empty" style="text-align:center;">
+      <h1>No results to show</h1>
+      <p class="mx-auto mt-lg">Finish a quiz first, then come back here.</p>
+      <a href="dashboard.html" class="btn btn-primary mt-lg">Back to dashboard</a>
+    </div>
+
+    <div id="results-summary" class="card results-summary">
+      <span class="eyebrow" style="justify-content: center;">Quiz complete</span>
+      <div class="results-score" id="results-score">—</div>
+      <div class="results-score-label" id="results-score-label"></div>
+      <div class="hero-actions">
+        <a href="upload.html" class="btn btn-primary">New quiz</a>
+        <a href="dashboard.html" class="btn btn-secondary">Dashboard</a>
+      </div>
+    </div>
+
+    <div class="results-review" id="review-list"></div>
+  </main>
+
+  <footer id="site-footer" class="footer"></footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/navbar.js"></script>
+  <script type="module" src="js/results.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a12" />
+  <title>About — QuizForge</title>
+  <meta name="description" content="QuizForge turns PDFs into AI-generated quizzes. Here's what it does and who built it." />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+</head>
+<body data-page="about">
+  <header id="site-header" class="site-header"></header>
+
+  <main>
+    <section class="page-head container-narrow">
+      <span class="eyebrow">About</span>
+      <h1>A quiz generator built for a very specific 2am problem</h1>
+      <p class="mx-auto">
+        You have a PDF of notes and a test tomorrow. Re-reading isn't testing yourself.
+        QuizForge exists to close that gap.
+      </p>
+    </section>
+
+    <section class="container-narrow">
+      <div class="stack">
+        <div class="card">
+          <h3>What it does</h3>
+          <p style="margin-top: 0.5rem;">
+            You upload a PDF — up to 40 pages — and choose how many questions you want,
+            how hard they should be, and what format to answer in. QuizForge reads the
+            document and generates a quiz from it, then scores your answers and explains
+            each one afterward.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Why it's built this way</h3>
+          <p style="margin-top: 0.5rem;">
+            Most quiz tools either ask you to write your own questions or generate
+            generic ones about a topic. Neither is fast when you already have the
+            source material in front of you. QuizForge skips straight to the part
+            that's useful: questions grounded in your document, with your account
+            keeping a history of what you've already studied.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Who built it</h3>
+          <p style="margin-top: 0.5rem;">
+            QuizForge is an independent project by Mohak Choubey, a developer who
+            builds and maintains a small portfolio of web tools. It's built with
+            plain HTML, CSS, and JavaScript, backed by Firebase for accounts and
+            Groq for quiz generation.
+          </p>
+          <div class="row mt-lg">
+            <a href="https://github.com/mohakdev1220" target="_blank" rel="noopener" class="btn btn-secondary">GitHub</a>
+            <a href="https://youtube.com/@MOHAKCHOUBEY" target="_blank" rel="noopener" class="btn btn-secondary">YouTube</a>
+            <a href="sites.html" class="btn btn-ghost">See other projects</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer" class="footer"></footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/navbar.js"></script>
+  <script type="module" src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+/* =========================================================
+   QuizForge — Auth (login / signup)
+   ========================================================= */
+
+.auth-shell {
+  min-height: calc(100vh - 64px);
+  min-height: calc(100dvh - 64px); /* real viewport height on mobile, ignores browser chrome jumping */
+  display: grid;
+  place-items: center;
+  padding-block: 2.5rem;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 2.25rem 2rem 2rem;
+}
+
+@media (max-width: 420px) {
+  .auth-shell {
+    padding-block: 1.5rem;
+    padding-inline: 0.25rem;
+  }
+
+  .auth-card {
+    padding: 1.75rem 1.25rem 1.5rem;
+  }
+}
+
+.auth-head {
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+
+.auth-head .nav-brand-mark {
+  margin-inline: auto;
+  margin-bottom: 1rem;
+}
+
+.auth-head h1 {
+  font-size: 1.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.auth-head p {
+  font-size: 0.92rem;
+  margin-inline: auto;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.auth-form .btn {
+  margin-top: 0.4rem;
+}
+
+.auth-meta {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.88rem;
+  color: var(--text-dim);
+}
+
+.auth-meta a {
+  color: var(--violet-bright);
+}
+
+.auth-meta a:hover {
+  text-decoration: underline;
+}
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-faint);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  margin-block: 0.4rem;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.password-strength {
+  height: 4px;
+  border-radius: 999px;
+  background: var(--border);
+  overflow: hidden;
+  margin-top: 0.35rem;
+}
+
+.password-strength-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--error);
+  transition: width 0.25s var(--ease), background 0.25s var(--ease);
+}
+
+.password-strength-label {
+  font-size: 0.75rem;
+  color: var(--text-faint);
+  margin-top: 0.3rem;
+  display: block;
+}
+
+.field-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+.field-check input {
+  margin-top: 0.2rem;
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  accent-color: var(--violet);
+}
+
+.field-check a {
+  color: var(--violet-bright);
+}
+
+.field-check a:hover {
+  text-decoration: underline;
+}

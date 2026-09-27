@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a12" />
+  <title>Quiz Settings — QuizForge</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body data-page="dashboard">
+  <header id="site-header" class="site-header"></header>
+
+  <main class="app-shell container-narrow">
+    <div class="page-head" style="padding-block: 0 2rem;">
+      <span class="eyebrow">Step 3 of 4</span>
+      <h1>Configure your quiz</h1>
+      <p class="mx-auto">Pick how many questions, how hard, and what format — then generate.</p>
+    </div>
+
+    <div class="alert" data-form-alert id="settings-alert"></div>
+    <div class="alert alert-error" id="no-pdf-notice">
+      No PDF is ready. <a href="upload.html" style="color: inherit; text-decoration: underline;">Upload one first.</a>
+    </div>
+
+    <div class="card">
+      <form id="settings-form" class="stack">
+        <div class="option-group">
+          <label>Question count</label>
+          <div class="option-pills">
+            <label class="option-pill" data-group="count"><input type="radio" name="count" value="5" />5</label>
+            <label class="option-pill is-selected" data-group="count"><input type="radio" name="count" value="10" checked />10</label>
+            <label class="option-pill" data-group="count"><input type="radio" name="count" value="15" />15</label>
+            <label class="option-pill" data-group="count"><input type="radio" name="count" value="20" />20</label>
+          </div>
+        </div>
+
+        <div class="option-group">
+          <label>Difficulty</label>
+          <div class="option-pills">
+            <label class="option-pill" data-group="difficulty"><input type="radio" name="difficulty" value="Easy" />Easy</label>
+            <label class="option-pill is-selected" data-group="difficulty"><input type="radio" name="difficulty" value="Medium" checked />Medium</label>
+            <label class="option-pill" data-group="difficulty"><input type="radio" name="difficulty" value="Hard" />Hard</label>
+          </div>
+        </div>
+
+        <div class="option-group">
+          <label>Question type</label>
+          <div class="option-pills">
+            <label class="option-pill is-selected" data-group="type"><input type="radio" name="type" value="MCQ" checked />Multiple choice</label>
+            <label class="option-pill" data-group="type"><input type="radio" name="type" value="True-False" />True / False</label>
+            <label class="option-pill" data-group="type"><input type="radio" name="type" value="Mixed" />Mixed</label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block mt-lg" id="generate-btn">Generate quiz</button>
+
+        <div class="generation-status" id="generation-status">
+          <span class="spinner" style="display:inline-block;"></span>
+          <span id="generation-status-label">Working…</span>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer id="site-footer" class="footer"></footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/navbar.js"></script>
+  <script type="module" src="js/quiz-settings.js"></script>
+</body>
+</html>

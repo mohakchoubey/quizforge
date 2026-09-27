@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a12" />
+  <title>Upload PDF — QuizForge</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+</head>
+<body data-page="dashboard">
+  <header id="site-header" class="site-header"></header>
+
+  <main class="app-shell container-narrow">
+    <div class="page-head" style="padding-block: 0 2rem;">
+      <span class="eyebrow">Step 1 of 4</span>
+      <h1>Upload your PDF</h1>
+      <p class="mx-auto">Up to 40 pages, up to 50MB. Notes, a chapter, a handout — anything with real text.</p>
+    </div>
+
+    <div class="card">
+      <div class="alert" data-form-alert id="upload-error"></div>
+
+      <div class="dropzone" id="dropzone" tabindex="0" role="button" aria-label="Choose a PDF file">
+        <div class="dropzone-icon">📄</div>
+        <p><strong>Drop your PDF here</strong> or click to browse</p>
+        <p class="dropzone-hint">PDF only · 40 pages max · 50MB max</p>
+        <input type="file" id="pdf-input" accept="application/pdf" />
+      </div>
+
+      <div class="progress-track" id="upload-progress"><div class="progress-fill" id="upload-progress-fill"></div></div>
+
+      <div class="file-chip" id="file-chip">
+        <span class="file-chip-name" id="file-chip-name"></span>
+        <button type="button" class="file-chip-remove" id="file-chip-remove" aria-label="Remove file">✕</button>
+      </div>
+
+      <button type="button" class="btn btn-primary btn-block mt-lg" id="continue-btn" disabled>Continue to editor</button>
+    </div>
+  </main>
+
+  <footer id="site-footer" class="footer"></footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/navbar.js"></script>
+  <script type="module" src="js/upload.js"></script>
+</body>
+</html>

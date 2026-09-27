@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a12" />
+  <title>Sign up — QuizForge</title>
+  <meta name="description" content="Create a QuizForge account to start turning PDFs into quizzes." />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+</head>
+<body data-page="signup">
+  <header id="site-header" class="site-header"></header>
+
+  <main class="auth-shell container-narrow">
+    <div class="card auth-card">
+      <div class="auth-head">
+        <span class="nav-brand-mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Z" stroke="#1a1206" stroke-width="1.7"/><path d="M15 2v5h5" stroke="#1a1206" stroke-width="1.7"/><path d="M8.3 13.6l2 2 4.7-5.2" stroke="#1a1206" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h1>Create your account</h1>
+        <p>Free to join — your first quiz is a couple of minutes away.</p>
+      </div>
+
+      <div class="alert" data-form-alert id="signup-alert"></div>
+
+      <form class="auth-form" id="signup-form" novalidate>
+        <div class="field" id="signup-name-field">
+          <label for="signup-name">Name</label>
+          <input id="signup-name" name="name" type="text" autocomplete="name" placeholder="Your name" required />
+          <span class="field-error">Enter your name.</span>
+        </div>
+
+        <div class="field" id="signup-email-field">
+          <label for="signup-email">Email</label>
+          <input id="signup-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+          <span class="field-error">Enter a valid email address.</span>
+        </div>
+
+        <div class="field" id="signup-password-field">
+          <label for="signup-password">Password</label>
+          <input id="signup-password" name="password" type="password" autocomplete="new-password" placeholder="At least 8 characters" required minlength="8" />
+          <div class="password-strength"><div class="password-strength-bar" id="strength-bar"></div></div>
+          <span class="password-strength-label" id="strength-label">Use 8+ characters with a mix of letters and numbers.</span>
+          <span class="field-error">Password must be at least 8 characters.</span>
+        </div>
+
+        <div class="field" id="signup-confirm-field">
+          <label for="signup-confirm">Confirm password</label>
+          <input id="signup-confirm" name="confirm" type="password" autocomplete="new-password" placeholder="Re-enter your password" required />
+          <span class="field-error">Passwords don't match.</span>
+        </div>
+
+        <label class="field-check">
+          <input type="checkbox" id="signup-terms" required />
+          <span>I agree to the <a href="terms.html">Terms of Use</a> and <a href="privacy-policy.html">Privacy Policy</a>.</span>
+        </label>
+
+        <button type="submit" class="btn btn-primary btn-block">
+          <span class="spinner"></span>
+          <span class="btn-label">Create account</span>
+        </button>
+      </form>
+
+      <p class="auth-meta">Already have an account? <a href="login.html">Log in</a></p>
+    </div>
+  </main>
+
+  <footer id="site-footer" class="footer"></footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/navbar.js"></script>
+  <script type="module">
+    import { signUpUser, redirectIfAuthenticated } from "./js/auth.js";
+
+    // Already signed in? Skip straight to the dashboard.
+    redirectIfAuthenticated("dashboard.html");
+
+    const form = document.getElementById("signup-form");
+    const alertBox = document.getElementById("signup-alert");
+    const nameField = document.getElementById("signup-name-field");
+    const emailField = document.getElementById("signup-email-field");
+    const passwordField = document.getElementById("signup-password-field");
+    const confirmField = document.getElementById("signup-confirm-field");
+    const strengthBar = document.getElementById("strength-bar");
+    const strengthLabel = document.getElementById("strength-label");
+
+    function setFieldError(field, hasError) {
+      field.classList.toggle("has-error", hasError);
+    }
+
+    function scorePassword(pw) {
+      let score = 0;
+      if (pw.length >= 8) score++;
+      if (pw.length >= 12) score++;
+      if (/[A-Z]/.test(pw) && /[a-z]/.test(pw)) score++;
+      if (/\d/.test(pw)) score++;
+      if (/[^A-Za-z0-9]/.test(pw)) score++;
+      return Math.min(score, 4);
+    }
+
+    const strengthMeta = [
+      { width: "10%", color: "var(--error)", label: "Too short — use 8+ characters." },
+      { width: "35%", color: "var(--error)", label: "Weak — add numbers or a symbol." },
+      { width: "60%", color: "var(--amber)", label: "Okay — a bit longer would help." },
+      { width: "82%", color: "var(--amber-bright)", label: "Good password." },
+      { width: "100%", color: "var(--success)", label: "Strong password." },
+    ];
+
+    form.password.addEventListener("input", () => {
+      const score = scorePassword(form.password.value);
+      const meta = strengthMeta[form.password.value ? score : 0];
+      strengthBar.style.width = form.password.value ? meta.width : "0%";
+      strengthBar.style.background = meta.color;
+      strengthLabel.textContent = form.password.value
+        ? meta.label
+        : "Use 8+ characters with a mix of letters and numbers.";
+    });
+
+    function friendlyAuthError(err) {
+      switch (err.code) {
+        case "auth/email-already-in-use":
+          return "An account with that email already exists.";
+        case "auth/invalid-email":
+          return "That email address doesn't look right.";
+        case "auth/weak-password":
+          return "Please choose a stronger password.";
+        default:
+          return "Couldn't create your account. Please try again.";
+      }
+    }
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      window.QF.hideAlert(alertBox);
+
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const password = form.password.value;
+      const confirm = form.confirm.value;
+      const termsOk = document.getElementById("signup-terms").checked;
+
+      setFieldError(nameField, !name);
+      setFieldError(emailField, !email);
+      setFieldError(passwordField, password.length < 8);
+      setFieldError(confirmField, password !== confirm || !confirm);
+
+      if (!name || !email || password.length < 8 || password !== confirm) return;
+      if (!termsOk) {
+        window.QF.showAlert(alertBox, "error", "Please accept the Terms of Use and Privacy Policy to continue.");
+        return;
+      }
+
+      window.QF.setLoading(form, true);
+      try {
+        await signUpUser({ name, email, password });
+        window.QF.showAlert(alertBox, "success", "Account created — redirecting…");
+        window.location.href = "dashboard.html";
+      } catch (err) {
+        window.QF.showAlert(alertBox, "error", friendlyAuthError(err));
+      } finally {
+        window.QF.setLoading(form, false);
+      }
+    });
+  </script>
+</body>
+</html>

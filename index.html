@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a12" />
+  <title>QuizForge — Turn any PDF into a quiz</title>
+  <meta name="description" content="Upload a PDF and QuizForge generates a study quiz from it in seconds — pick the question count, difficulty, and type, then track your scores." />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+</head>
+<body data-page="home">
+  <header id="site-header" class="site-header"></header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container">
+      <span class="eyebrow">AI-generated study quizzes</span>
+      <h1>Your PDF has questions in it.<br />QuizForge finds them.</h1>
+      <p class="mx-auto">
+        Upload lecture notes, a textbook chapter, or a report — up to 40 pages — and
+        get a quiz built from what's actually on the page, ready to answer in minutes.
+      </p>
+      <div class="hero-actions">
+        <a href="signup.html" class="btn btn-primary">Create your first quiz</a>
+        <a href="questions.html" class="btn btn-secondary">How it works</a>
+      </div>
+
+      <div class="flow" aria-hidden="true">
+        <span class="flow-step">📄 Your PDF</span>
+        <span class="flow-arrow">→</span>
+        <span class="flow-step">⚙️ Quiz settings</span>
+        <span class="flow-arrow">→</span>
+        <span class="flow-step">✨ AI-generated quiz</span>
+        <span class="flow-arrow">→</span>
+        <span class="flow-step">📊 Your results</span>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="container">
+      <div class="page-head" style="padding-block: 0 2.5rem;">
+        <span class="eyebrow">Why QuizForge</span>
+        <h2>Studying from a PDF shouldn't mean re-reading it four times</h2>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="card">
+          <div class="card-icon">📚</div>
+          <h3>Reads what you give it</h3>
+          <p>Questions are grounded in your actual document — not generic trivia about the topic.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🎚️</div>
+          <h3>Your difficulty, your format</h3>
+          <p>Choose question count, difficulty, and type before generating — multiple choice, short answer, or a mix.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">✍️</div>
+          <h3>Light editing before you quiz</h3>
+          <p>Trim a page, fix a heading, drop a section you don't need — then generate.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">✅</div>
+          <h3>Explanations, not just scores</h3>
+          <p>Every result comes with the reasoning behind each answer, so a wrong guess still teaches you something.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🕓</div>
+          <h3>History that sticks around</h3>
+          <p>Past quizzes and scores are saved to your account, so you can see what you've already covered.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔒</div>
+          <h3>Your document stays yours</h3>
+          <p>PDFs are processed to generate your quiz and are never used to train anything or shown to other users.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how-it-works" class="container">
+      <div class="page-head" style="padding-block: 0 2.5rem;">
+        <span class="eyebrow">How it works</span>
+        <h2>Four steps from PDF to finished quiz</h2>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <h3>Upload</h3>
+          <p>Drop in a PDF of up to 40 pages — notes, a chapter, a handout.</p>
+        </div>
+        <div class="step">
+          <h3>Edit (optional)</h3>
+          <p>Trim pages or content you don't want questions generated from.</p>
+        </div>
+        <div class="step">
+          <h3>Configure</h3>
+          <p>Set the number of questions, difficulty, and question type.</p>
+        </div>
+        <div class="step">
+          <h3>Quiz & review</h3>
+          <p>Answer the generated quiz, then read the explanation behind every question.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="container">
+      <div class="glass text-center" style="padding: clamp(2.5rem, 6vw, 4rem);">
+        <h2>Turn today's reading into tonight's quiz</h2>
+        <p class="mx-auto" style="margin-top: 0.75rem;">
+          Free to start — no card required. Your first quiz is a couple of minutes away.
+        </p>
+        <div class="hero-actions">
+          <a href="signup.html" class="btn btn-primary">Sign up free</a>
+          <a href="login.html" class="btn btn-ghost">I already have an account</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer" class="footer"></footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/navbar.js"></script>
+  <script type="module" src="js/auth.js"></script>
+</body>
+</html>

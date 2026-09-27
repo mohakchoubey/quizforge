@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /dashboard.html
+Disallow: /upload.html
+Disallow: /editor.html
+Disallow: /quiz-settings.html
+Disallow: /quiz.html
+Disallow: /results.html
+
+Sitemap: https://YOUR-DOMAIN.example/sitemap.xml

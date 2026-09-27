@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a12" />
+  <title>Dashboard — QuizForge</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body data-page="dashboard">
+  <header id="site-header" class="site-header"></header>
+
+  <main class="container">
+    <div class="dashboard-head">
+      <span class="eyebrow">Dashboard</span>
+      <h1 id="dashboard-greeting">Welcome back</h1>
+
+      <div class="dashboard-stats">
+        <div class="card stat-card">
+          <span class="stat-value" id="stat-total">—</span>
+          <span class="stat-label">Quizzes taken</span>
+        </div>
+        <div class="card stat-card">
+          <span class="stat-value" id="stat-avg">—</span>
+          <span class="stat-label">Average score</span>
+        </div>
+        <div class="card stat-card">
+          <span class="stat-value" id="stat-best">—</span>
+          <span class="stat-label">Best score</span>
+        </div>
+      </div>
+
+      <div class="card dashboard-cta">
+        <div>
+          <h3>Ready for another one?</h3>
+          <p>Upload a PDF and have a quiz ready in a couple of minutes.</p>
+        </div>
+        <a href="upload.html" class="btn btn-primary">Create a quiz</a>
+      </div>
+    </div>
+
+    <section style="padding-top: 0;">
+      <h2>Quiz history</h2>
+
+      <div id="history-skeleton" class="history-list">
+        <div class="skeleton"></div>
+        <div class="skeleton"></div>
+        <div class="skeleton"></div>
+      </div>
+
+      <div class="card empty-state hidden" id="history-empty">
+        <h3>No quizzes yet</h3>
+        <p>Upload your first PDF to generate a quiz — it'll show up here.</p>
+        <a href="upload.html" class="btn btn-primary mt-lg">Create your first quiz</a>
+      </div>
+
+      <div class="history-list" id="history-list"></div>
+    </section>
+  </main>
+
+  <footer id="site-footer" class="footer"></footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/navbar.js"></script>
+  <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

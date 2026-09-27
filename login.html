@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a12" />
+  <title>Log in — QuizForge</title>
+  <meta name="description" content="Log in to your QuizForge account to upload PDFs and generate quizzes." />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+</head>
+<body data-page="login">
+  <header id="site-header" class="site-header"></header>
+
+  <main class="auth-shell container-narrow">
+    <div class="card auth-card">
+      <div class="auth-head">
+        <span class="nav-brand-mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Z" stroke="#1a1206" stroke-width="1.7"/><path d="M15 2v5h5" stroke="#1a1206" stroke-width="1.7"/><path d="M8.3 13.6l2 2 4.7-5.2" stroke="#1a1206" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h1>Welcome back</h1>
+        <p>Log in to pick up where you left off.</p>
+      </div>
+
+      <div class="alert" data-form-alert id="login-alert"></div>
+
+      <form class="auth-form" id="login-form" novalidate>
+        <div class="field" id="login-email-field">
+          <label for="login-email">Email</label>
+          <input id="login-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+          <span class="field-error">Enter a valid email address.</span>
+        </div>
+
+        <div class="field" id="login-password-field">
+          <label for="login-password">Password</label>
+          <input id="login-password" name="password" type="password" autocomplete="current-password" placeholder="••••••••" required minlength="8" />
+          <span class="field-error">Enter your password.</span>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">
+          <span class="spinner"></span>
+          <span class="btn-label">Log in</span>
+        </button>
+      </form>
+
+      <p class="auth-meta">Don't have an account? <a href="signup.html">Sign up</a></p>
+    </div>
+  </main>
+
+  <footer id="site-footer" class="footer"></footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/navbar.js"></script>
+  <script type="module">
+    import { loginUser, redirectIfAuthenticated } from "./js/auth.js";
+
+    // Already signed in? Skip straight to the dashboard.
+    redirectIfAuthenticated("dashboard.html");
+
+    const form = document.getElementById("login-form");
+    const alertBox = document.getElementById("login-alert");
+    const emailField = document.getElementById("login-email-field");
+    const passwordField = document.getElementById("login-password-field");
+
+    function setFieldError(field, hasError) {
+      field.classList.toggle("has-error", hasError);
+    }
+
+    function friendlyAuthError(err) {
+      switch (err.code) {
+        case "auth/invalid-email":
+          return "That email address doesn't look right.";
+        case "auth/user-not-found":
+        case "auth/wrong-password":
+        case "auth/invalid-credential":
+          return "Email or password is incorrect.";
+        case "auth/too-many-requests":
+          return "Too many attempts — please wait a moment and try again.";
+        default:
+          return "Couldn't log you in. Please try again.";
+      }
+    }
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      window.QF.hideAlert(alertBox);
+
+      const email = form.email.value.trim();
+      const password = form.password.value;
+
+      setFieldError(emailField, !email);
+      setFieldError(passwordField, !password);
+      if (!email || !password) return;
+
+      window.QF.setLoading(form, true);
+      try {
+        await loginUser({ email, password });
+        window.QF.showAlert(alertBox, "success", "Logged in — redirecting…");
+        window.location.href = "dashboard.html";
+      } catch (err) {
+        window.QF.showAlert(alertBox, "error", friendlyAuthError(err));
+      } finally {
+        window.QF.setLoading(form, false);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "quizforge",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "busboy": "^1.6.0",
+    "pdf-parse": "^1.1.1",
+    "firebase-admin": "^12.1.0"
+  }
+}

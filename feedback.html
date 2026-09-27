@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a12" />
+  <title>Feedback — QuizForge</title>
+  <meta name="description" content="Tell QuizForge what's working, what isn't, and what you'd like to see next." />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+</head>
+<body data-page="feedback">
+  <header id="site-header" class="site-header"></header>
+
+  <main>
+    <section class="page-head container-narrow">
+      <span class="eyebrow">Feedback</span>
+      <h1>What's working? What isn't?</h1>
+      <p class="mx-auto">
+        QuizForge is actively developed — feedback shapes what gets built next.
+      </p>
+    </section>
+
+    <section class="container-narrow" style="padding-top: 0;">
+      <div class="card">
+        <div class="alert" data-form-alert></div>
+
+        <!-- Replace YOUR_FORM_ID with the Formspree endpoint for this form -->
+        <form class="stack" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" data-formspree novalidate>
+          <div class="field">
+            <label for="fb-email">Email (optional)</label>
+            <input id="fb-email" name="email" type="email" placeholder="you@example.com" />
+            <small>Only needed if you'd like a reply.</small>
+          </div>
+
+          <div class="field">
+            <label for="fb-type">Feedback type</label>
+            <select id="fb-type" name="type">
+              <option value="Bug">Something's broken</option>
+              <option value="Idea">Feature idea</option>
+              <option value="Quiz quality">Quiz quality issue</option>
+              <option value="General">General feedback</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="fb-message">Your feedback</label>
+            <textarea id="fb-message" name="message" rows="7" placeholder="What happened, or what would help?" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">
+            <span class="spinner"></span>
+            <span class="btn-label">Submit feedback</span>
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer" class="footer"></footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/navbar.js"></script>
+  <script type="module" src="js/auth.js"></script>
+</body>
+</html>

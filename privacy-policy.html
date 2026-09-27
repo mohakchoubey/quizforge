@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a12" />
+  <title>Privacy Policy — QuizForge</title>
+  <meta name="description" content="How QuizForge handles your account data, uploaded PDFs, and quiz history." />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+</head>
+<body data-page="privacy">
+  <header id="site-header" class="site-header"></header>
+
+  <main>
+    <section class="page-head container-narrow">
+      <span class="eyebrow">Legal</span>
+      <h1>Privacy Policy</h1>
+      <p class="mx-auto">Last updated: <span class="mono">September 2026</span></p>
+    </section>
+
+    <section class="container-narrow legal" style="padding-top: 0;">
+      <p>
+        This policy explains what QuizForge collects, why, and how it's handled. It
+        applies to quizforge.app and its associated Firebase and API services.
+      </p>
+
+      <h2>What we collect</h2>
+      <ul>
+        <li><strong>Account data:</strong> name, email address, and authentication details, handled by Firebase Authentication.</li>
+        <li><strong>Uploaded PDFs:</strong> the document you upload to generate a quiz, processed temporarily to extract quiz content.</li>
+        <li><strong>Quiz data:</strong> generated questions, your answers, scores, and quiz history, stored in Firebase tied to your account.</li>
+        <li><strong>Contact and feedback messages:</strong> anything submitted through the contact or feedback forms, handled by Formspree.</li>
+        <li><strong>Basic technical data:</strong> standard request metadata (such as IP address) collected by our hosting and security providers for abuse prevention.</li>
+      </ul>
+
+      <h2>How your PDF is used</h2>
+      <p>
+        An uploaded PDF is sent from our secure backend to Groq to generate quiz
+        content. It is not shown to other users, not used to train any AI model,
+        and is not retained longer than needed to generate and store your quiz.
+      </p>
+
+      <h2>How we use your data</h2>
+      <ul>
+        <li>To create and secure your account.</li>
+        <li>To generate quizzes from your uploaded PDFs.</li>
+        <li>To save your quiz history so you can review past results.</li>
+        <li>To respond to messages sent through contact or feedback forms.</li>
+        <li>To maintain the security and reliability of the service.</li>
+      </ul>
+
+      <h2>Third-party services</h2>
+      <p>QuizForge relies on the following services to operate:</p>
+      <ul>
+        <li><strong>Firebase</strong> (Google) — authentication and data storage.</li>
+        <li><strong>Groq</strong> — AI-generated quiz content.</li>
+        <li><strong>Formspree</strong> — contact and feedback form delivery.</li>
+        <li><strong>Cloudflare</strong> — DNS, HTTPS, and abuse protection.</li>
+      </ul>
+      <p>Each provider processes only the data necessary for its function and is bound by its own privacy terms.</p>
+
+      <h2>Your choices</h2>
+      <p>
+        You can request access to, correction of, or deletion of your account data
+        and quiz history at any time by reaching out through the <a href="contact.html" style="color: var(--violet-bright);">contact page</a>.
+      </p>
+
+      <h2>Data security</h2>
+      <p>
+        Account access is protected by Firebase Authentication and Firebase Security
+        Rules, which restrict each user to their own data. No API keys used to
+        generate quizzes are ever exposed in frontend code.
+      </p>
+
+      <h2>Changes to this policy</h2>
+      <p>
+        If this policy changes, the "last updated" date above will change along
+        with it. Material changes will be noted on this page.
+      </p>
+
+      <h2>Contact</h2>
+      <p>Questions about this policy can be sent through the <a href="contact.html" style="color: var(--violet-bright);">contact page</a>.</p>
+    </section>
+  </main>
+
+  <footer id="site-footer" class="footer"></footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/navbar.js"></script>
+  <script type="module" src="js/auth.js"></script>
+</body>
+</html>
