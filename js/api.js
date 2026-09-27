@@ -1,17 +1,7 @@
-// =========================================================
-// QuizForge — Backend API helper
-// Wraps fetch() to attach the signed-in user's Firebase ID
-// token, so /api/* routes can verify the caller server-side
-// instead of trusting a client-supplied user ID.
-// =========================================================
-
 import { getAuth } from "./firebase.js";
 
-/**
- * Calls a same-origin /api/* route with the caller's Firebase ID token.
- * @param {string} path e.g. "/api/generate-quiz"
- * @param {{method?: string, body?: FormData|object, signal?: AbortSignal}} options
- */
+const API_BASE = "https://quizforge-orpin.vercel.app";
+
 export async function callApi(path, { method = "POST", body, signal } = {}) {
   const user = getAuth().currentUser;
   if (!user) throw new Error("You need to be signed in to do that.");
@@ -25,7 +15,13 @@ export async function callApi(path, { method = "POST", body, signal } = {}) {
     payload = JSON.stringify(body);
   }
 
-  const res = await fetch(path, { method, headers, body: payload, signal });
+  const res = await fetch(`${API_BASE}${path}`, { 
+    method, 
+    headers, 
+    body: payload, 
+    signal 
+  });
+  
   const data = await res.json().catch(() => ({}));
 
   if (!res.ok) {
